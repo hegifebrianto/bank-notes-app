@@ -2,7 +2,7 @@ import React from 'react'
 import NoteItemContent from './NoteItemContent';
 import NoteItemAction from './NoteItemActionComponent';
 
-function NoteItem({ id, title, body, createAt, archived, action }) {
+function NoteItem({ id, title, body, createdAt, archived, action }) {
     const onDeleteNote = (item) => {
         action((notes) => notes.filter((note) => note.id !== item));
     };
@@ -22,7 +22,7 @@ function NoteItem({ id, title, body, createAt, archived, action }) {
             <NoteItemContent
                 title={title}
                 body={body}
-                createAt={createAt}
+                createdAt={createdAt}
                 archived={archived}
                 action={action}
             />

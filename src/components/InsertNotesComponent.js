@@ -15,8 +15,6 @@ function InsertNotes({ setNotes }) {
     };
     const currentDate = new Date();  // Current date and time
     const dateAsInteger = convertDateToInteger(currentDate);
-
-    console.log(dateAsInteger,'dateAsInteger');
     const onSubmitHandler = (event) => {
         event.preventDefault();
         const timestamp = new Date().toISOString();
