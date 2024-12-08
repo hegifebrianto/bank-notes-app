@@ -9,7 +9,7 @@ function InsertNotes({ setNotes }) {
         event.preventDefault();
         const timestamp = new Date().toISOString();
 
-        setNotes((notes) => [...notes, { id: Math.random(), title: title, body: body, timestamp: timestamp, archived: false }]);
+        setNotes((notes) => [...notes, { id: (Math.random().parseInt), title: title, body: body, timestamp: timestamp, archived: false }]);
         setTittle("");
         setBody("");
     }
