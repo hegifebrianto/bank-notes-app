@@ -4,12 +4,24 @@ import Input from './InputComponent'
 function InsertNotes({ setNotes }) {
     const [title, setTittle] = useState("");
     const [body, setBody] = useState("");
+    const convertDateToInteger = (date) => {
+        // Ensure the date is a valid Date object
+        if (!(date instanceof Date)) {
+            throw new Error("Invalid input: not a Date object");
+        }
 
+        // Convert the date to milliseconds since the Unix epoch (January 1, 1970)
+        return date.getTime();
+    };
+    const currentDate = new Date();  // Current date and time
+    const dateAsInteger = convertDateToInteger(currentDate);
+
+    console.log(dateAsInteger,'dateAsInteger');
     const onSubmitHandler = (event) => {
         event.preventDefault();
         const timestamp = new Date().toISOString();
 
-        setNotes((notes) => [...notes, { id: (Math.random().parseInt), title: title, body: body, timestamp: timestamp, archived: false }]);
+        setNotes((notes) => [...notes, { id: dateAsInteger, title: title, body: body, timestamp: timestamp, archived: false }]);
         setTittle("");
         setBody("");
     }

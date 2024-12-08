@@ -2,7 +2,6 @@ import React from 'react'
 import InsertNotes from './InsertNotesComponent'
 import NoteList from "./NoteListComponent";
 function Body({ notesAll, notesArchive, setNotes }) {
-  // console.log('asd',notesArchive,setNotes);
   return (
       <div className="col align-self-center">
         <InsertNotes setNotes={setNotes} />
