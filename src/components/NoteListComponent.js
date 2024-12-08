@@ -3,7 +3,6 @@ import NoteItem from './NoteItemComponent'
 import { Container, Row, Col } from "reactstrap";
 
 function NoteList({ notes, label, setNotes }) {
-
     return (
         <div>
             <h2 className='text-align-center'>{label}</h2>
