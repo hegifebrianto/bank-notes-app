@@ -19,6 +19,11 @@
     border: 1px solid #aaa;
     border-radius: 4px;
   }
+
+  .margin-right-20 {
+    margin-right: 20px;
+    width: 400px;
+  }
   
   input::placeholder, textarea::placeholder {
     color: #aaa;
@@ -108,6 +113,16 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+  }
+  .title-item {
+    border: 5px solid #aaa;
+    border-radius: 4px;
+  } 
+  .margin-5 {
+    margin:5px;
+  }
+  .body-item {
+   font-size: 15px; 
   }
   
   .note-item__content {

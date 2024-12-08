@@ -1,79 +1,38 @@
-import React from "react";
+import React from 'react'
+import { useEffect, useState } from "react";
+import { getInitialData } from './data/Data'
+import Header from './components/BankNotesHeader';
+import Body from './components/BankNotesBody';
+function App() {
 
-import { getInitialData } from "./data/Data";
-import HomePage from './pages/HomePage'
+  const [query, setQuery] = useState("");
+  const [searchNotes, setSearchNotes] = useState([]);
+  const [notes, setNotes] = useState(getInitialData());
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+  const notesAll = (searchNotes || notes).filter((note) => !note.archived);
+  const notesArchive = (searchNotes || notes).filter((note) => note.archived);
 
-    const notes = getInitialData();
-
-    this.state = {
-      notes: notes,
-      querySearch: "",
-    };
-
-    this.onAddNoteEventHandler = this.onAddNoteEventHandler.bind(this);
-
-    this.onDeleteHandler = this.onDeleteHandler.bind(this);
-    this.onArchiveHandler = this.onArchiveHandler.bind(this);
-    this.onActiveHandler = this.onActiveHandler.bind(this);
-
-    this.onSearchEventHandler = this.onSearchEventHandler.bind(this);
-  }
-
-  onAddNoteEventHandler({ title, body }) {
-    this.setState((prevState) => {
-      return {
-        notes: [
-          ...prevState.notes,
-          {
-            id: +new Date(),
-            title,
-            body,
-            createdAt: new Date().toISOString(),
-            archived: false,
-          },
-        ],
-      };
-    });
-  }
-
-  onDeleteHandler(id) {
-    this.setState({ notes: this.state.notes.filter((note) => note.id !== id) });
-  }
-
-  onArchiveHandler(id) {
-    this.setState({
-      notes: this.state.notes.map((note) =>
-        note.id === id ? { ...note, archived: true } : note
-      ),
-    });
-  }
-
-  onActiveHandler(id) {
-    this.setState({
-      notes: this.state.notes.map((note) =>
-        note.id === id ? { ...note, archived: false } : note
-      ),
-    });
-  }
-
-  onSearchEventHandler({ query }) {
-    this.setState(() => {
-      return { querySearch: query };
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <HomePage searchNote={this.onSearchEventHandler} />
-        {/* <Header searchNote={this.onSearchEventHandler} /> */}
-      </div>
+  useEffect(() => {
+    setSearchNotes(
+      notes.filter((note) =>
+        note.title.toLowerCase().includes(query.toLowerCase())
+      )
     );
-  }
+  }, [query, notes]);
+
+  return (
+    <div>
+      <Header noteSearch={setSearchNotes} setQuery={setQuery} />
+      <Body
+        notesAll={notesAll}
+        notesArchive={notesArchive}
+        setNotes={setNotes}
+      />
+
+
+
+    </div>
+  )
 }
 
-export default App;
+export default App
