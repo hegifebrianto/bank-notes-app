@@ -4,10 +4,12 @@ function Header({ search, setQuery }) {
   return (
     <div>
       <div className='row'>
-        <h1 className='text-align-center'>Bank Notes App</h1>
       </div>
-      <div className='row'>
-        <div className="col align-self-end">
+      <div className='row note-app-header'>
+        <h1 className='col-2'> 📒Notes App</h1>
+
+        <div className="col-10 align-self-end">
+
           <div className='float-right'>
             <Input
               value={search}

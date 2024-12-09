@@ -3,10 +3,10 @@ import React from 'react'
 function NoteItemAction({ onDeleteNote, onArchiveNote, id, archived }) {
 
     return (
-        <div className='text-align-center'>
+        <div className='text-align-center card'>
             <button
                 type="button"
-                className="btn btn-primary margin-5"
+                className="btn btn-secondary margin-5"
                 id={id}
                 onClick={() => onDeleteNote(id)}
                 aria-label="Delete Button"
@@ -15,7 +15,7 @@ function NoteItemAction({ onDeleteNote, onArchiveNote, id, archived }) {
             </button>
             <button
                 type="button"
-                className="btn btn-primary archive-button margin-5"
+                className="btn btn-secondary archive-button margin-5"
                 id={id}
                 onClick={() => onArchiveNote(id)}
                 aria-label='Archive Button'

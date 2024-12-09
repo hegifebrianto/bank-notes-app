@@ -28,7 +28,7 @@ function InsertNotes({ setNotes }) {
     return (
         <div className='row'>
             <div className='col align-self-center text-align-center'>
-                <h2>Insert Bank Notes</h2>
+                <h2>Insert Notes</h2>
                 <form onSubmit={onSubmitHandler}>
                     <label>Bank Name:</label>
                     <label>Character left : {50 - title.length}</label>
@@ -53,11 +53,12 @@ function InsertNotes({ setNotes }) {
 
                     />
                     <button
-                        className="btn btn-primary "
-                        type="submit"
-                    >
-                        Submit
-                    </button>
+                            className="btn btn-secondary width-400"
+                            type="submit"
+                        >
+                            Submit
+                        </button>
+
                 </form>
             </div>
         </div>

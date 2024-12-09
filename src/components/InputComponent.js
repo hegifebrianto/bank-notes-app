@@ -18,7 +18,7 @@ function Input(attributes) {
             {attributes.type === "textarea" ? (
                 <textarea
                     {...attributes}
-                    className="note-input__body margin-right-20"
+                    className="note-input__body margin-right-20 margin-top-10"
                     value={attributes.value}
                     spellCheck={false}
                     onChange={changeHandler}

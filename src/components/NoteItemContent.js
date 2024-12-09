@@ -4,8 +4,8 @@ import { showFormattedDate } from '../data/Data'
 function NoteItemContent({ title, body, createdAt }) {
   return (
       <div className="">
-        <div className="note-item">
-          <h3 className="header-item text-align-center">
+        <div className="card">
+          <h3 className="header-item text-align-center height-200">
             <span className="title-item">{title}</span>
             <br></br>
             <span className="body-item">{showFormattedDate(createdAt)}</span>
