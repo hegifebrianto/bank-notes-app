@@ -19,7 +19,7 @@ function InsertNotes({ setNotes }) {
         event.preventDefault();
         const timestamp = new Date().toISOString();
 
-        setNotes((notes) => [...notes, { id: dateAsInteger, title: title, body: body, timestamp: timestamp, archived: false }]);
+        setNotes((notes) => [...notes, { id: dateAsInteger, title: title, body: body, createdAt: timestamp, archived: false }]);
         setTittle("");
         setBody("");
     }

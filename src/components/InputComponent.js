@@ -3,7 +3,6 @@ import React from 'react'
 function Input(attributes) {
 
     const changeHandler = (event) => {
-        console.log(event.target.value);
         if (attributes.name === "title") {
             const currentText = event.target.value;
             attributes.onChange((oldText) =>
