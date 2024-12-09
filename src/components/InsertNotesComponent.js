@@ -37,7 +37,7 @@ function InsertNotes({ setNotes }) {
                         id="title"
                         name="title"
                         type="text"
-                        placeholder="Input Title ..."
+                        placeholder="Input Notes here ..."
                         required
                         onChange={setTittle}
 
@@ -47,7 +47,7 @@ function InsertNotes({ setNotes }) {
                         id="body"
                         name="body"
                         type="textarea"
-                        placeholder="Write your bank notes here ..."
+                        placeholder="Write your notes here ..."
                         required
                         onChange={setBody}
 
