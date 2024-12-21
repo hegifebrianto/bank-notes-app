@@ -1,34 +1,22 @@
-import React from 'react'
-import { useEffect, useState } from "react";
-import { getInitialData } from './data/Data'
-import Header from './components/BankNotesHeader';
-import Body from './components/BankNotesBody';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import ArchivedPage from './pages/ArchivedPage';
+import DetailNotesPages from './pages/DetailNotesPages';
 function App() {
 
-  const [query, setQuery] = useState("");
-  const [searchNotes, setSearchNotes] = useState([]);
-  const [notes, setNotes] = useState(getInitialData());
 
-  const notesAll = (searchNotes || notes).filter((note) => !note.archived);
-  const notesArchive = (searchNotes || notes).filter((note) => note.archived);
-
-  useEffect(() => {
-    setSearchNotes(
-      notes.filter((note) =>
-        note.title.toLowerCase().includes(query.toLowerCase())
-      )
-    );
-  }, [query, notes]);
 
   return (
-    <div>
-      <Header noteSearch={setSearchNotes} setQuery={setQuery} />
-      <Body
-        notesAll={notesAll}
-        notesArchive={notesArchive}
-        setNotes={setNotes}
-      />
 
+    <div>
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/archived" element={<ArchivedPage />} />
+        <Route path="/notes/:id" element={<DetailNotesPages />} />
+
+      </Routes>
 
 
     </div>

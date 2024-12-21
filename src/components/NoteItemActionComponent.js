@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+import NoteItem from './NoteItemComponent';
 
 function NoteItemAction({ onDeleteNote, onArchiveNote, id, archived }) {
 
@@ -25,6 +27,13 @@ function NoteItemAction({ onDeleteNote, onArchiveNote, id, archived }) {
         </div>
     )
 
+}
+
+NoteItemAction.propTypes  = {
+    onDeleteNote: PropTypes.func.isRequired,
+    onArchiveNote: PropTypes.func.isRequired,
+    id:PropTypes.number.isRequired,
+    archived:PropTypes.bool.isRequired
 }
 
 export default NoteItemAction

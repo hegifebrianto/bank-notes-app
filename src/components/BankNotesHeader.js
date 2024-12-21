@@ -1,6 +1,8 @@
 import React from 'react'
 import Input from './InputComponent'
-function Header({ search, setQuery }) {
+import PropTypes from 'prop-types'
+function Header({  setQuery }) {
+  
   return (
     <div>
       <div className='row'>
@@ -12,7 +14,6 @@ function Header({ search, setQuery }) {
 
           <div className='float-right'>
             <Input
-              value={search}
               onChange={setQuery}
               type="search"
               id="search_note"
@@ -25,6 +26,9 @@ function Header({ search, setQuery }) {
       </div>
     </div>
   )
+}
+Header.propTypes = {
+  setQuery: PropTypes.func.isRequired, 
 }
 
 export default Header

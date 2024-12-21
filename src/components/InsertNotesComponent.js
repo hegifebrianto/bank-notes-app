@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Input from './InputComponent'
 
+import PropTypes from 'prop-types';
+
 function InsertNotes({ setNotes }) {
     const [title, setTittle] = useState("");
     const [body, setBody] = useState("");
@@ -23,6 +25,8 @@ function InsertNotes({ setNotes }) {
         setTittle("");
         setBody("");
     }
+
+
 
 
     return (
@@ -53,11 +57,11 @@ function InsertNotes({ setNotes }) {
 
                     />
                     <button
-                            className="btn btn-secondary width-400"
-                            type="submit"
-                        >
-                            Submit
-                        </button>
+                        className="btn btn-secondary width-400"
+                        type="submit"
+                    >
+                        Submit
+                    </button>
 
                 </form>
             </div>
@@ -65,4 +69,7 @@ function InsertNotes({ setNotes }) {
     )
 }
 
+InsertNotes.propTypes = {
+    setNotes: PropTypes.func.isRequired, // A required function to update the notes
+};
 export default InsertNotes

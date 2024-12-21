@@ -1,6 +1,7 @@
 import React from 'react'
 import NoteItem from './NoteItemComponent'
 import { Container, Row, Col } from "reactstrap";
+import PropTypes from 'prop-types';
 
 function NoteList({ notes, label, setNotes }) {
     return (
@@ -22,5 +23,18 @@ function NoteList({ notes, label, setNotes }) {
 
     )
 }
+NoteList.propTypes = {
+    notes: PropTypes.arrayOf(
+      PropTypes.exact({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        body: PropTypes.string.isRequired,
+        archived: PropTypes.bool.isRequired,
+        createdAt: PropTypes.string.isRequired,
+      })),
+   label:PropTypes.string.isRequired,
+   setNotes:PropTypes.func.isRequired
+  };
+
 
 export default NoteList
